@@ -4,6 +4,7 @@ package ru.tinkoff.edu;
 import org.junit.jupiter.api.Test;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
+import ru.tinkoff.edu.controller.UserJWTController;
 import ru.tinkoff.edu.models.TokenRequestDto;
 import ru.tinkoff.edu.models.TokenResponseDto;
 
@@ -24,7 +25,7 @@ public class getClientTokenTests {
             .addConverterFactory(JacksonConverterFactory.create())
             .baseUrl(BASE_URL + PORT + PATH)
             .build();
-    ClientService service = retrofit.create(ClientService.class);
+    UserJWTController service = retrofit.create(UserJWTController.class);
 
     @Test
     public void checkCreatingClient() throws IOException {
