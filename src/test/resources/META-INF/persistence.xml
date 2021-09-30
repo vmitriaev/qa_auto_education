@@ -1,0 +1,22 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+               http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="dboNew" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <!--        <class>ru.tinkoff.edu.domain.Region</class>-->
+        <properties>
+
+            <property name="hibernate.connection.url" value="jdbc:postgresql://31.131.249.140:5432/app-db"/>
+            <property name="hibernate.connection.username" value="app-db-admin"/>
+            <property name="hibernate.connection.password" value="AiIoqv6c2k0gVhx2"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL81Dialect"/>
+
+
+        </properties>
+
+    </persistence-unit>
+</persistence>
+
