@@ -1,10 +1,6 @@
 package ru.tinkoff.edu.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.Column;
-import javax.persistence.Entity;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +11,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "REGION")
-//@NamedQuery(name = "Region.getAll", query = "SELECT * FROM region")
 public class Region implements Serializable {
 
 
@@ -40,38 +35,6 @@ public class Region implements Serializable {
         this.regionName = regionName;
     }
 
-//    @Column(name = "regionName")
-//    private String regionName;
-//
-//    @JsonIgnore
-//    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    /**
-     * Client login for auth
-     * (Required)
-     */
-
-    /**
-     * Client login for auth
-     * (Required)
-     */
-//    @JsonProperty("regionName")
-//    public Region setRegionName(String regionName) {
-//        this.regionName = regionName;
-//        return this;
-//    }
-//
-//    @JsonProperty("regionName")
-//    public Region setId(Long id) {
-//        this.id = id;
-//        return this;
-//    }
-
-    /**
-     * Client salt
-     * (Required)
-     */
-    @JsonProperty("regionName")
     public String getRegionName() {
         return regionName;
     }
@@ -80,14 +43,14 @@ public class Region implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public Region setId(int id) {
         this.id = id;
+        return this;
     }
 
-//
-//    @JsonProperty("regionName")
-//    public String getRegionName() {
-//        return id;
-//    }
+    public Region setRegionName(String regionName) {
+        this.regionName = regionName;
+        return this;
+    }
 
 }
