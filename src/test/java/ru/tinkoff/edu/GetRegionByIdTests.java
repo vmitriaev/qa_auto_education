@@ -27,8 +27,8 @@ import static ru.tinkoff.edu.Dictionary.clientRememberFlag;
 
 public class GetRegionByIdTests {
 
-    private static EntityManagerFactory entityManagerFactory;
-    private EntityManager em;
+    private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dboNew");;
+    private EntityManager em = entityManagerFactory.createEntityManager();;
     private TokenResponseDto token;
     Retrofit retrofit = new Retrofit.Builder()
             .addConverterFactory(JacksonConverterFactory.create())
@@ -37,16 +37,10 @@ public class GetRegionByIdTests {
     private UserJWTController service = retrofit.create(UserJWTController.class);
     private RegionController regionService = retrofit.create(RegionController.class);
     private static String regionName = "RegionNamee";
-    Region region;
+    Region region = new Region().setRegionName(regionName);
 
     @BeforeEach
     public void setUpDB() throws IOException {
-
-
-        region = new Region()
-                .setRegionName(regionName);
-        entityManagerFactory = Persistence.createEntityManagerFactory("dboNew");
-        em = entityManagerFactory.createEntityManager();
         em.getTransaction().begin();
         em.persist(region);
         em.getTransaction().commit();
@@ -70,7 +64,6 @@ public class GetRegionByIdTests {
         Region newRegion = regionService
                 .getRegion(region.getId(), "Bearer " + token.getIdToken()).execute().body();
         checkRegion(newRegion);
-
     }
 
     public void checkRegion(Region newRegion) {

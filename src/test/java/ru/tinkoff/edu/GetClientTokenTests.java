@@ -34,7 +34,6 @@ public class GetClientTokenTests {
                 .setRememberMe(clientRememberFlag)
                 .setUsername(clientLogin)).execute().body();
         checkClientCreation(token);
-
     }
 
     public void checkClientCreation(TokenResponseDto token) {
